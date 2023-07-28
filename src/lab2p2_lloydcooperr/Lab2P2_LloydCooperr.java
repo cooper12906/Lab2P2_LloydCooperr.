@@ -17,6 +17,7 @@ public class Lab2P2_LloydCooperr {
         String password = "";
         int opcion = 0;
         int option = 0;
+        int op = 0;
 
         while (!user.equals("gerente") && !password.equals("g3r$nt0")) {            
             System.out.println("Ingrese el nombre de usuario: ");
@@ -61,7 +62,7 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Ingrese el turno del chef (matutino/vespertino): ");
                             String turno = read.next();
                             if (turno.equalsIgnoreCase("matutino") && contadorMatutinos(chefs) >= 7) {
-                                System.out.println("El número máximo de chefs matutinos (7) ha sido alcanzado.");
+                                System.out.println("El numero máximo de chefs matutinos (7) ha sido alcanzado.");
                                 break;
                             } else if (turno.equalsIgnoreCase("vespertino") && contadorVespertinos(chefs) >= 7) {
                                 System.out.println("El número máximo de chefs vespertinos (7) ha sido alcanzado.");
@@ -131,7 +132,26 @@ public class Lab2P2_LloydCooperr {
                     }
                     break;
                 case 2:
-                    
+                    System.out.println("Que desea listar?");
+                    System.out.println("1. Chefs");
+                    System.out.println("2. Meseros");
+                    System.out.println("3. Bartenders");
+                    System.out.println("4. Mesas");
+                    op = read.nextInt();
+                    switch(op){
+                        case 1:
+                            System.out.println("-------- Chefs --------");
+                            for (Chef chef : chefs) {
+                                System.out.println(chef.toString());
+                            }
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
                     break;
                 case 3:
                     break;
