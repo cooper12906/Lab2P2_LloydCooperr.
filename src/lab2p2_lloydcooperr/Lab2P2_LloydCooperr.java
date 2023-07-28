@@ -41,6 +41,7 @@ public class Lab2P2_LloydCooperr {
             System.out.println("5. Salir");
             System.out.println("--------------------");
             opcion = read.nextInt();
+            read = new Scanner(System.in);
             
             switch(opcion){
                 case 1:
@@ -54,8 +55,9 @@ public class Lab2P2_LloydCooperr {
                     switch(option){
                         case 1:
                             System.out.println("Ingrese el nombre del chef: ");
-                            String nombre = read.next();
                             read.nextLine();
+                            String nombre = read.nextLine();
+                            read = new Scanner(System.in);
                             System.out.println("Ingrese la edad del chef: ");
                             int edad = read.nextInt();
                             if (edad <= 0) {
@@ -92,7 +94,9 @@ public class Lab2P2_LloydCooperr {
                             break;
                         case 2:
                             System.out.println("Ingrese el nombre del mesero: ");
+                            read.nextLine();
                             String nombreMesero = read.nextLine();
+                            read = new Scanner(System.in);
                             System.out.println("Ingrese la edad del mesero: ");
                             int edadMesero = read.nextInt();
                             System.out.println("Ingrese el turno del mesero (matutino/vespertino): ");
@@ -106,20 +110,31 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Mesero agregado correctamente");
                             break;
                         case 3:
-                            System.out.println("Ingrese el nombre del bartender: ");
-                            String nombreBartender= read.nextLine();
-                            System.out.println("Ingrese la edad del bartender: ");
-                            int edadBartender = read.nextInt();
-                            System.out.println("Ingrese el turno del bartender (matutino/vespertino): ");
-                            String turnoBartender = read.next();
-                            System.out.println("Ingrese el sueldo del bartender ");
-                            int sueldoBartender= read.nextInt();
-                            System.out.println("Ingrese el numero de licores: ");
-                            int numeroLicores = read.nextInt();
-                            
-                            bartenders.add(new Bartender(nombreBartender, edadBartender, turnoBartender, sueldoBartender, numeroLicores));
-                            System.out.println("Bartender agregado correctamente");
+                            int contadorBartendersMatutino = contadorBartenders(bartenders, "matutino");
+                            int contadorBartendersVespertino = contadorBartenders(bartenders, "vespertino");
+                            String turnoBartender = read.nextLine(); // Consumir la línea vacía después de seleccionar la opción del menú
+                            if (turnoBartender.equalsIgnoreCase("matutino") && contadorBartendersMatutino >= 4) {
+                                System.out.println("El número máximo de bartenders matutinos (4) ha sido alcanzado.");
+                            } else if (turnoBartender.equalsIgnoreCase("vespertino") && contadorBartendersVespertino >= 4) {
+                                System.out.println("El número máximo de bartenders vespertinos (4) ha sido alcanzado.");
+                            } else {
+                                System.out.println("Ingrese el nombre del bartender: ");
+                                String nombreBartender = read.nextLine();
+
+                                System.out.println("Ingrese la edad del bartender: ");
+                                int edadBartender = read.nextInt();
+                                System.out.println("Ingrese el turno del bartender (matutino/vespertino): ");
+                                turnoBartender = read.next();
+                                System.out.println("Ingrese el sueldo del bartender ");
+                                int sueldoBartender = read.nextInt();
+                                System.out.println("Ingrese el numero de licores: ");
+                                int numeroLicores = read.nextInt();
+
+                                bartenders.add(new Bartender(nombreBartender, edadBartender, turnoBartender, sueldoBartender, numeroLicores));
+                                System.out.println("Bartender agregado correctamente");
+                            }
                             break;
+
                         case 4:
                         if (mesas.size() >= 10) {
                             System.out.println("El numero máximo de mesas (10) ha sido alcanzado.");
@@ -419,6 +434,25 @@ public class Lab2P2_LloydCooperr {
         int contador = 0;
         for (Chef chef : chefs) {
             if (chef.getTurno().equalsIgnoreCase("vespertino")) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+    public static int contadorMeseros(List<Mesero> meseros, String turno) {
+        int contador = 0;
+        for (Mesero mesero : meseros) {
+            if (mesero.getTurnoMesero().equalsIgnoreCase(turno)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    public static int contadorBartenders(List<Bartender> bartenders, String turno) {
+        int contador = 0;
+        for (Bartender bartender : bartenders) {
+            if (bartender.getTurnoBartender().equalsIgnoreCase(turno)) {
                 contador++;
             }
         }
