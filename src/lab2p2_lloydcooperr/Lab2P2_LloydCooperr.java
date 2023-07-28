@@ -14,18 +14,19 @@ public class Lab2P2_LloydCooperr {
         Scanner read = new Scanner(System.in);
 
         String user = "";
-        String password = "";
+        String password = "g3r$nt0";
         int opcion = 0;
         int option = 0;
         int op = 0;
         int op1 = 0;
+        int op2 = 0;
 
-        while (!user.equals("gerente") && !password.equals("g3r$nt0")) {            
+        while (!user.equals("gerente") || !password.equals("g3r$nt0")) {            
             System.out.println("Ingrese el nombre de usuario: ");
             user = read.next();
             System.out.println("Ingrese la contraseña: ");
             password = read.next();
-            if (!user.equals("gerente") && !password.equals("g3r$nt0")) {
+            if (!user.equals("gerente") || !password.equals("g3r$nt0")) {
                 System.out.println("Contraseña o usuario incorrecto");
             } else {
                 System.out.println("Bienvenido, gerente");
@@ -120,15 +121,20 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Bartender agregado correctamente");
                             break;
                         case 4:
+                        if (mesas.size() >= 10) {
+                            System.out.println("El numero máximo de mesas (10) ha sido alcanzado.");
+                        } else {
                             System.out.println("Ingrese el numero de platos de la mesa: ");
                             int numeroPlatos = read.nextInt();
                             System.out.println("Ingrese el numero de utensilios de la mesa: ");
                             int numeroUtensilios = read.nextInt();
                             System.out.println("Ingrese el precio total de la mesa: ");
                             int precioTotal = read.nextInt();
-                            
+
                             mesas.add(new Mesa(numeroPlatos, numeroUtensilios, precioTotal));
-                            break;
+                            System.out.println("Mesa agregada correctamente");
+                        }
+                        break;
                         default:
                             System.out.println("Opcion no valida");
                             break;
@@ -213,11 +219,116 @@ public class Lab2P2_LloydCooperr {
                             }
                             break;
                         case 2:
-                            
+                            System.out.println("Seleccione el numero del mesero que desea modificar:");
+                            for (int i = 0; i < meseros.size(); i++) {
+                                System.out.println((i + 1) + ". " + meseros.get(i).getNombreMesero());
+                            }
+                            int selectedMesero = read.nextInt();
+                            if (selectedMesero >= 1 && selectedMesero <= meseros.size()) {
+                                Mesero meseroSeleccionado = meseros.get(selectedMesero - 1);
+
+                                System.out.println("Que atributo desea modificar?");
+                                System.out.println("1. Propina");
+                                System.out.println("2. Sueldo");
+                                int atributoAModificar = read.nextInt();
+
+                                switch (atributoAModificar) {
+                                    case 1:
+                                        System.out.println("Ingrese la nueva propina:");
+                                        int nuevaPropina = read.nextInt();
+                                        meseroSeleccionado.setPropina(nuevaPropina);
+                                        System.out.println("La propina ha sido actualizada correctamente.");
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo sueldo:");
+                                        int nuevoSueldo = read.nextInt();
+                                        meseroSeleccionado.setSueldo(nuevoSueldo);
+                                        System.out.println("El sueldo ha sido actualizado correctamente.");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion invalida.");
+                                        break;
+                                }
+                            } else {
+                                System.out.println("Numero de mesero seleccionado invalido.");
+                            }
                             break;
                         case 3:
+                            System.out.println("Seleccione el numero del bartender que desea modificar:");
+                            for (int i = 0; i < bartenders.size(); i++) {
+                                System.out.println((i + 1) + ". " + bartenders.get(i).getNombreBartender());
+                            }
+                            int selectedBartender = read.nextInt();
+                            if (selectedBartender >= 1 && selectedBartender <= bartenders.size()) {
+                                Bartender bartenderSeleccionado = bartenders.get(selectedBartender - 1);
+
+                                System.out.println("Que atributo desea modificar?");
+                                System.out.println("1. Numero de licores");
+                                System.out.println("2. Sueldo");
+                                int atributoAModificar = read.nextInt();
+
+                                switch (atributoAModificar) {
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo número de licores:");
+                                        int nuevosLicores = read.nextInt();
+                                        bartenderSeleccionado.setNumeroLicores(nuevosLicores);
+                                        System.out.println("El numero de licores ha sido actualizado correctamente.");
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo sueldo:");
+                                        int nuevoSueldo = read.nextInt();
+                                        bartenderSeleccionado.setSueldoBartender(nuevoSueldo);
+                                        System.out.println("El sueldo ha sido actualizado correctamente.");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion invalida.");
+                                        break;
+                                }
+                            } else {
+                                System.out.println("Numero de bartender seleccionado invalido.");
+                            }
                             break;
                         case 4:
+                            System.out.println("Seleccione el numero de la mesa que desea modificar:");
+                            for (int i = 0; i < mesas.size(); i++) {
+                                System.out.println((i + 1) + ". Mesa " + (i + 1));
+                            }
+                            int selectedMesa = read.nextInt();
+                            if (selectedMesa >= 1 && selectedMesa <= mesas.size()) {
+                                Mesa mesaSeleccionada = mesas.get(selectedMesa - 1);
+
+                                System.out.println("Que atributo desea modificar?");
+                                System.out.println("1. Numero de platos");
+                                System.out.println("2. Numero de utensilios");
+                                System.out.println("3. Precio total");
+                                int atributoAModificar = read.nextInt();
+
+                                switch (atributoAModificar) {
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo numero de platos:");
+                                        int nuevosPlatos = read.nextInt();
+                                        mesaSeleccionada.setNumeroPlatos(nuevosPlatos);
+                                        System.out.println("El numero de platos ha sido actualizado correctamente.");
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo numero de utensilios:");
+                                        int nuevosUtensilios = read.nextInt();
+                                        mesaSeleccionada.setNumeroUtensilios(nuevosUtensilios);
+                                        System.out.println("El numero de utensilios ha sido actualizado correctamente.");
+                                        break;
+                                    case 3:
+                                        System.out.println("Ingrese el nuevo precio total:");
+                                        int nuevoPrecioTotal = read.nextInt();
+                                        mesaSeleccionada.setPrecioTotal(nuevoPrecioTotal);
+                                        System.out.println("El precio total ha sido actualizado correctamente.");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion invalida.");
+                                        break;
+                                }
+                            } else {
+                                System.out.println("Numero de mesa seleccionado invalido.");
+                            }
                             break;
                         default:
                             System.out.println("Opcion invalida");
@@ -225,6 +336,70 @@ public class Lab2P2_LloydCooperr {
                     }
                     break;
                 case 4:
+                    System.out.println("Que desea eliminar?");
+                    System.out.println("1. Chefs");
+                    System.out.println("2. Meseros");
+                    System.out.println("3. Bartenders");
+                    System.out.println("4. Mesas");
+                    op2 = read.nextInt();
+                    
+                    switch (op2){
+                        case 1:
+                            System.out.println("Seleccione el numero del chef que desea eliminar:");
+                            for (int i = 0; i < chefs.size(); i++) {
+                                System.out.println((i + 1) + ". " + chefs.get(i).getNombre());
+                            }
+                            int selectedChef = read.nextInt();
+                            if (selectedChef >= 1 && selectedChef <= chefs.size()) {
+                                chefs.remove(selectedChef - 1);
+                                System.out.println("Chef eliminado correctamente.");
+                            } else {
+                                System.out.println("Numero de chef seleccionado invalido.");
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Seleccione el numero del mesero que desea eliminar:");
+                            for (int i = 0; i < meseros.size(); i++) {
+                                System.out.println((i + 1) + ". " + meseros.get(i).getNombreMesero());
+                            }
+                            int selectedMesero = read.nextInt();
+                            if (selectedMesero >= 1 && selectedMesero <= meseros.size()) {
+                                meseros.remove(selectedMesero - 1);
+                                System.out.println("Mesero eliminado correctamente.");
+                            } else {
+                                System.out.println("Numero de mesero seleccionado invalido.");
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Seleccione el numero del bartender que desea eliminar:");
+                            for (int i = 0; i < bartenders.size(); i++) {
+                                System.out.println((i + 1) + ". " + bartenders.get(i).getNombreBartender());
+                            }
+                            int selectedBartender = read.nextInt();
+                            if (selectedBartender >= 1 && selectedBartender <= bartenders.size()) {
+                                bartenders.remove(selectedBartender - 1);
+                                System.out.println("Bartender eliminado correctamente.");
+                            } else {
+                                System.out.println("Numero de bartender seleccionado invalido.");
+                            }
+                            break;
+                        case 4:
+                        System.out.println("Seleccione el numero de la mesa que desea eliminar:");
+                        for (int i = 0; i < mesas.size(); i++) {
+                            System.out.println((i + 1) + ". Mesa " + (i + 1));
+                        }
+                        int selectedMesa = read.nextInt();
+                        if (selectedMesa >= 1 && selectedMesa <= mesas.size()) {
+                            mesas.remove(selectedMesa - 1);
+                            System.out.println("Mesa eliminada correctamente.");
+                        } else {
+                            System.out.println("Numero de mesa seleccionado invalido.");
+                        }
+                            break;
+                        default:
+                            System.out.println("Opcion invalida");
+                            break;
+                    }
                     break;
             }
         }while (opcion != 5);
