@@ -1,13 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package lab2p2_lloydcooperr;
 
-/**
- *
- * @author CUSTOMER PC
- */
 public class Mesas {
-    
+    private int numeroPlatos;
+    private int numeroUtensilios;
+    private int precioTotal;
+
+    public Mesas(int numeroPlatos, int numeroUtensilios, int precioTotal) {
+        this.numeroPlatos = numeroPlatos;
+        this.numeroUtensilios = numeroUtensilios;
+        this.precioTotal = precioTotal;
+    }
+
+    public int getNumeroPlatos() {
+        return numeroPlatos;
+    }
+
+    public void setNumeroPlatos(int numeroPlatos) {
+        this.numeroPlatos = numeroPlatos;
+    }
+
+    public int getNumeroUtensilios() {
+        return numeroUtensilios;
+    }
+
+    public void setNumeroUtensilios(int numeroUtensilios) {
+        this.numeroUtensilios = numeroUtensilios;
+    }
+
+    public int getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
+    @Override
+    public String toString() {
+        return "Mesas:" + 
+                numeroPlatos + 
+                numeroUtensilios + 
+                precioTotal;
+    }
+     
 }

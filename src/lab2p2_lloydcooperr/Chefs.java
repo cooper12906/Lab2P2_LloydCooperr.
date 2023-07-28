@@ -7,9 +7,6 @@ public class Chefs {
     private int numeroEstrellasMichelin;
     private String sueldo;
 
-    public Chefs() {
-    }
-
     public Chefs(String nombre, int edad, String turno, int numeroEstrellasMichelin, String sueldo) {
         this.nombre = nombre;
         this.edad = edad;
@@ -60,7 +57,12 @@ public class Chefs {
 
     @Override
     public String toString() {
-        return "Chefs{" + "nombre=" + nombre + ", edad=" + edad + ", turno=" + turno + ", numeroEstrellasMichelin=" + numeroEstrellasMichelin + ", sueldo=" + sueldo + '}';
+        return "Chefs:" + 
+                nombre + 
+                edad + 
+                turno + 
+                numeroEstrellasMichelin + 
+                sueldo;
     }
     
     
