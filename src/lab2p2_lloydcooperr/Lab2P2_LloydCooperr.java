@@ -93,10 +93,17 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Chef agregado correctamente");
                             break;
                         case 2:
+                        int contadorMeserosMatutino = contadorMeseros(meseros, "matutino");
+                        int contadorMeserosVespertino = contadorMeseros(meseros, "vespertino");
+
+                        if (contadorMeserosMatutino >= 7) {
+                            System.out.println("El número máximo de meseros matutinos (7) ha sido alcanzado.");
+                        } else if (contadorMeserosVespertino >= 7) {
+                            System.out.println("El número máximo de meseros vespertinos (7) ha sido alcanzado.");
+                        } else {
                             System.out.println("Ingrese el nombre del mesero: ");
                             read.nextLine();
                             String nombreMesero = read.nextLine();
-                            read = new Scanner(System.in);
                             System.out.println("Ingrese la edad del mesero: ");
                             int edadMesero = read.nextInt();
                             System.out.println("Ingrese el turno del mesero (matutino/vespertino): ");
@@ -105,10 +112,12 @@ public class Lab2P2_LloydCooperr {
                             int sueldoMesero = read.nextInt();
                             System.out.println("Ingrese la propina del mesero: ");
                             int propinaMesero = read.nextInt();
-                            
-                            meseros.add(new Mesero(nombreMesero, edadMesero,turnoMesero,sueldoMesero,propinaMesero));
+
+                            meseros.add(new Mesero(nombreMesero, edadMesero, turnoMesero, sueldoMesero, propinaMesero));
                             System.out.println("Mesero agregado correctamente");
-                            break;
+                        }
+                        break;
+
                         case 3:
                             int contadorBartendersMatutino = contadorBartenders(bartenders, "matutino");
                             int contadorBartendersVespertino = contadorBartenders(bartenders, "vespertino");
