@@ -60,11 +60,11 @@ public class Lab2P2_LloydCooperr {
                             }
                             System.out.println("Ingrese el turno del chef (matutino/vespertino): ");
                             String turno = read.next();
-                            if (turno.equalsIgnoreCase("matutino") && chefs.size() >= 7) {
-                                System.out.println("El numero maximo de chefs matutinos (7) ha sido alcanzado.");
+                            if (turno.equalsIgnoreCase("matutino") && contadorMatutinos(chefs) >= 7) {
+                                System.out.println("El número máximo de chefs matutinos (7) ha sido alcanzado.");
                                 break;
-                            } else if (turno.equalsIgnoreCase("vespertino") && chefs.size() >= 7) {
-                                System.out.println("El numero maximo de chefs vespertinos (7) ha sido alcanzado.");
+                            } else if (turno.equalsIgnoreCase("vespertino") && contadorVespertinos(chefs) >= 7) {
+                                System.out.println("El número máximo de chefs vespertinos (7) ha sido alcanzado.");
                                 break;
                             }
                             System.out.println("Ingrese el numero de estrellas michelin del chef: ");
@@ -139,6 +139,26 @@ public class Lab2P2_LloydCooperr {
                     break;
             }
         }while (opcion != 5);
+    }
+    
+    private static int contadorMatutinos(ArrayList<Chef> chefs) {
+        int contador = 0;
+        for (Chef chef : chefs) {
+            if (chef.getTurno().equalsIgnoreCase("matutino")) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    private static int contadorVespertinos(ArrayList<Chef> chefs) {
+        int contador = 0;
+        for (Chef chef : chefs) {
+            if (chef.getTurno().equalsIgnoreCase("vespertino")) {
+                contador++;
+            }
+        }
+        return contador;
     }
 }
     
