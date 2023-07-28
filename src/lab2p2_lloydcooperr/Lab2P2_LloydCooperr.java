@@ -18,6 +18,7 @@ public class Lab2P2_LloydCooperr {
         int opcion = 0;
         int option = 0;
         int op = 0;
+        int op1 = 0;
 
         while (!user.equals("gerente") && !password.equals("g3r$nt0")) {            
             System.out.println("Ingrese el nombre de usuario: ");
@@ -146,14 +147,46 @@ public class Lab2P2_LloydCooperr {
                             }
                             break;
                         case 2:
+                            System.out.println("-------- Meseros --------");
+                            for (Mesero mesero : meseros) {
+                                System.out.println(mesero.toString());
+                            }
+                            break;
+                        case 3:
+                            System.out.println("-------- Bartenders --------");
+                            for (Bartender bartender : bartenders) {
+                                System.out.println(bartender.toString());
+                            }
+                            break;
+                        case 4:
+                            System.out.println("-------- Mesas --------");
+                            for (Mesa mesa : mesas) {
+                                System.out.println(mesa.toString());
+                            }
+                            break;
+                    }
+                    break;
+                case 3:
+                    System.out.println("Que desea modificar?");
+                    System.out.println("1. Chefs");
+                    System.out.println("2. Meseros");
+                    System.out.println("3. Bartenders");
+                    System.out.println("4. Mesas");
+                    op1 = read.nextInt();
+                    
+                    switch(op1){
+                        case 1:
+                            break;
+                        case 2:
                             break;
                         case 3:
                             break;
                         case 4:
                             break;
+                        default:
+                            System.out.println("Opcion invalida");
+                            break;
                     }
-                    break;
-                case 3:
                     break;
                 case 4:
                     break;

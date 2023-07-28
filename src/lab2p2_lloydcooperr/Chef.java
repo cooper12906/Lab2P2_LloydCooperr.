@@ -57,13 +57,10 @@ public class Chef {
 
     @Override
     public String toString() {
-        return "Chefs:" + 
-                nombre + 
-                edad + 
-                turno + 
-                numeroEstrellasMichelin + 
-                sueldo;
-    }
-    
-    
+        return "Nombre: " + nombre + "\n" +
+               "Edad: " + edad + "\n" +
+               "Turno: " + turno + "\n" +
+               "Estrellas Michelin: " + numeroEstrellasMichelin + "\n" +
+               "Sueldo: " + sueldo + "\n";
+    }  
 }

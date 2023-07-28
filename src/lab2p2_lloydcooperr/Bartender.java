@@ -57,14 +57,11 @@ public class Bartender {
 
     @Override
     public String toString() {
-        return "Bartenders:" + 
-                nombreBartender + 
-                edadBartender + 
-                turnoBartender + 
-                sueldoBartender + 
-                numeroLicores;
-    }
-    
-    
-    
+        return "Bartenders:\n" +
+               "Nombre: " + nombreBartender + "\n" +
+               "Edad: " + edadBartender + "\n" +
+               "Turno: " + turnoBartender + "\n" +
+               "Sueldo: " + sueldoBartender + "\n" +
+               "Numero de licores: " + numeroLicores + "\n";
+    } 
 }

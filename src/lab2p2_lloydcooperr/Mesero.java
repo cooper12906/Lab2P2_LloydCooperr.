@@ -57,13 +57,11 @@ public class Mesero {
 
     @Override
     public String toString() {
-        return "Meseros:" + 
-                nombreMesero + 
-                edadMesero + 
-                turnoMesero + 
-                sueldo + 
-                propina;
-    }
-    
-    
+        return "Meseros:\n" +
+               "Nombre: " + nombreMesero + "\n" +
+               "Edad: " + edadMesero + "\n" +
+               "Turno: " + turnoMesero + "\n" +
+               "Sueldo: " + sueldo + "\n" +
+               "Propina: " + propina + "\n";
+    }  
 }

@@ -37,10 +37,9 @@ public class Mesa {
 
     @Override
     public String toString() {
-        return "Mesas:" + 
-                numeroPlatos + 
-                numeroUtensilios + 
-                precioTotal;
-    }
-     
+        return "Mesas:\n" +
+               "Numero de platos: " + numeroPlatos + "\n" +
+               "Numero de utensilios: " + numeroUtensilios + "\n" +
+               "Precio total: " + precioTotal + "\n";
+    }  
 }
