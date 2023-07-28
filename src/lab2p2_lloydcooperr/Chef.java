@@ -1,13 +1,13 @@
 package lab2p2_lloydcooperr;
 
-public class Chefs {
+public class Chef {
     private String nombre;
     private int edad;
     private String turno;
     private int numeroEstrellasMichelin;
-    private String sueldo;
+    private int sueldo;
 
-    public Chefs(String nombre, int edad, String turno, int numeroEstrellasMichelin, String sueldo) {
+    public Chef(String nombre, int edad, String turno, int numeroEstrellasMichelin, int sueldo) {
         this.nombre = nombre;
         this.edad = edad;
         this.turno = turno;
@@ -47,11 +47,11 @@ public class Chefs {
         this.numeroEstrellasMichelin = numeroEstrellasMichelin;
     }
 
-    public String getSueldo() {
+    public int getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(String sueldo) {
+    public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
 

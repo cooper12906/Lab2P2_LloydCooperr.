@@ -1,13 +1,13 @@
 package lab2p2_lloydcooperr;
 
-public class Meseros {
+public class Mesero {
     private String nombreMesero;
     private int edadMesero;
     private String turnoMesero;
     private int sueldo;
     private int propina;
 
-    public Meseros(String nombreMesero, int edadMesero, String turnoMesero, int sueldo, int propina) {
+    public Mesero(String nombreMesero, int edadMesero, String turnoMesero, int sueldo, int propina) {
         this.nombreMesero = nombreMesero;
         this.edadMesero = edadMesero;
         this.turnoMesero = turnoMesero;

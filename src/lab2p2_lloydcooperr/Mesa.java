@@ -1,11 +1,11 @@
 package lab2p2_lloydcooperr;
 
-public class Mesas {
+public class Mesa {
     private int numeroPlatos;
     private int numeroUtensilios;
     private int precioTotal;
 
-    public Mesas(int numeroPlatos, int numeroUtensilios, int precioTotal) {
+    public Mesa(int numeroPlatos, int numeroUtensilios, int precioTotal) {
         this.numeroPlatos = numeroPlatos;
         this.numeroUtensilios = numeroUtensilios;
         this.precioTotal = precioTotal;

@@ -1,13 +1,13 @@
 package lab2p2_lloydcooperr;
 
-public class Bartenders {
+public class Bartender {
     private String nombreBartender;
     private int edadBartender;
     private String turnoBartender;
     private int sueldoBartender;
     private int numeroLicores;
 
-    public Bartenders(String nombreBartender, int edadBartender, String turnoBartender, int sueldoBartender, int numeroLicores) {
+    public Bartender(String nombreBartender, int edadBartender, String turnoBartender, int sueldoBartender, int numeroLicores) {
         this.nombreBartender = nombreBartender;
         this.edadBartender = edadBartender;
         this.turnoBartender = turnoBartender;

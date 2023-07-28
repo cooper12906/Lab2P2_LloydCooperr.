@@ -5,10 +5,10 @@ import java.util.*;
 
 public class Lab2P2_LloydCooperr {
     
-    private static ArrayList<Chefs> chefs = new ArrayList();
-    private static ArrayList<Meseros> meseros = new ArrayList();
-    private static ArrayList<Bartenders> bartenders = new ArrayList();
-    private static ArrayList<Mesas> mesas = new ArrayList();
+    private static ArrayList<Chef> chefs = new ArrayList();
+    private static ArrayList<Mesero> meseros = new ArrayList();
+    private static ArrayList<Bartender> bartenders = new ArrayList();
+    private static ArrayList<Mesa> mesas = new ArrayList();
     
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
@@ -53,14 +53,36 @@ public class Lab2P2_LloydCooperr {
                             String nombre = read.next();
                             System.out.println("Ingrese la edad del chef: ");
                             int edad = read.nextInt();
-                            System.out.println("Ingrese el turno del chef (matutino/despertino): ");
+                            if (edad <= 0) {
+                                System.out.println("La edad no puede ser menor que 0");   
+                                System.out.println("Ingrese la edad del chef: ");
+                                edad = read.nextInt();
+                            }
+                            System.out.println("Ingrese el turno del chef (matutino/vespertino): ");
                             String turno = read.next();
+                            if (turno.equalsIgnoreCase("matutino") && chefs.size() >= 7) {
+                                System.out.println("El numero maximo de chefs matutinos (7) ha sido alcanzado.");
+                                break;
+                            } else if (turno.equalsIgnoreCase("vespertino") && chefs.size() >= 7) {
+                                System.out.println("El numero maximo de chefs vespertinos (7) ha sido alcanzado.");
+                                break;
+                            }
                             System.out.println("Ingrese el numero de estrellas michelin del chef: ");
                             int numeroEstrellas = read.nextInt();
+                            if (numeroEstrellas <= 0) {
+                                System.out.println("El numero de estrellas Michelin no puede ser menor que 0");
+                                System.out.println("Ingrese el numero de estrellas Michelin del chef: ");
+                                numeroEstrellas = read.nextInt();
+                            }
                             System.out.println("Ingrese el sueldo del chef: ");
-                            String sueldo = read.next();
-                            
-                            chefs.add(new Chefs(nombre, edad, turno, numeroEstrellas, sueldo));
+                            int sueldo = read.nextInt();
+                            if (sueldo <= 0) {
+                                System.out.println("El sueldo no puede ser menor que 0");
+                                System.out.println("Ingrese el sueldo del chef: ");
+                                sueldo = read.nextInt();
+                            }
+                           
+                            chefs.add(new Chef(nombre, edad, turno, numeroEstrellas, sueldo));
                             System.out.println("Chef agregado correctamente");
                             break;
                         case 2:
@@ -75,7 +97,7 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Ingrese la propina del mesero: ");
                             int propinaMesero = read.nextInt();
                             
-                            meseros.add(new Meseros(nombreMesero, edadMesero,turnoMesero,sueldoMesero,propinaMesero));
+                            meseros.add(new Mesero(nombreMesero, edadMesero,turnoMesero,sueldoMesero,propinaMesero));
                             System.out.println("Mesero agregado correctamente");
                             break;
                         case 3:
@@ -90,7 +112,7 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Ingrese el numero de licores: ");
                             int numeroLicores = read.nextInt();
                             
-                            bartenders.add(new Bartenders(nombreBartender, edadBartender, turnoBartender, sueldoBartender, numeroLicores));
+                            bartenders.add(new Bartender(nombreBartender, edadBartender, turnoBartender, sueldoBartender, numeroLicores));
                             System.out.println("Bartender agregado correctamente");
                             break;
                         case 4:
@@ -101,7 +123,7 @@ public class Lab2P2_LloydCooperr {
                             System.out.println("Ingrese el precio total de la mesa: ");
                             int precioTotal = read.nextInt();
                             
-                            mesas.add(new Mesas(numeroPlatos, numeroUtensilios, precioTotal));
+                            mesas.add(new Mesa(numeroPlatos, numeroUtensilios, precioTotal));
                             break;
                         default:
                             System.out.println("Opcion no valida");
