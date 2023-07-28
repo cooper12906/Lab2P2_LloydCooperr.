@@ -38,6 +38,7 @@ public class Lab2P2_LloydCooperr {
             System.out.println("3. Modificar");
             System.out.println("4. Eliminar");
             System.out.println("5. Salir");
+            System.out.println("--------------------");
             opcion = read.nextInt();
             
             switch(opcion){
@@ -53,6 +54,7 @@ public class Lab2P2_LloydCooperr {
                         case 1:
                             System.out.println("Ingrese el nombre del chef: ");
                             String nombre = read.next();
+                            read.nextLine();
                             System.out.println("Ingrese la edad del chef: ");
                             int edad = read.nextInt();
                             if (edad <= 0) {
@@ -89,7 +91,7 @@ public class Lab2P2_LloydCooperr {
                             break;
                         case 2:
                             System.out.println("Ingrese el nombre del mesero: ");
-                            String nombreMesero = read.next();
+                            String nombreMesero = read.nextLine();
                             System.out.println("Ingrese la edad del mesero: ");
                             int edadMesero = read.nextInt();
                             System.out.println("Ingrese el turno del mesero (matutino/vespertino): ");
@@ -104,7 +106,7 @@ public class Lab2P2_LloydCooperr {
                             break;
                         case 3:
                             System.out.println("Ingrese el nombre del bartender: ");
-                            String nombreBartender= read.next();
+                            String nombreBartender= read.nextLine();
                             System.out.println("Ingrese la edad del bartender: ");
                             int edadBartender = read.nextInt();
                             System.out.println("Ingrese el turno del bartender (matutino/vespertino): ");
@@ -176,8 +178,42 @@ public class Lab2P2_LloydCooperr {
                     
                     switch(op1){
                         case 1:
+                            System.out.println("Seleccione el numero del chef que desea modificar:");
+                            for (int i = 0; i < chefs.size(); i++) {
+                                System.out.println((i + 1) + ". " + chefs.get(i).getNombre());
+                            }
+                            int selectedChef = read.nextInt();
+                            if (selectedChef >= 1 && selectedChef <= chefs.size()) {
+                                Chef chefSeleccionado = chefs.get(selectedChef - 1);
+
+                                System.out.println("Que atributo desea modificar?");
+                                System.out.println("1. Numero de estrellas Michelin");
+                                System.out.println("2. Sueldo");
+                                int atributoAModificar = read.nextInt();
+
+                                switch (atributoAModificar) {
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo número de estrellas Michelin:");
+                                        int nuevasEstrellasMichelin = read.nextInt();
+                                        chefSeleccionado.setNumeroEstrellasMichelin(nuevasEstrellasMichelin);
+                                        System.out.println("El numero de estrellas Michelin ha sido actualizado correctamente.");
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo sueldo:");
+                                        int nuevoSueldo = read.nextInt();
+                                        chefSeleccionado.setSueldo(nuevoSueldo);
+                                        System.out.println("El sueldo ha sido actualizado correctamente.");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion invalida.");
+                                        break;
+                                }
+                            } else {
+                                System.out.println("Numero de chef seleccionado invalido.");
+                            }
                             break;
                         case 2:
+                            
                             break;
                         case 3:
                             break;
